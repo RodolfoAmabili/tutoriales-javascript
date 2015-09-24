@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Métodos y Funciones para Arreglos, Cadenas y Números en JS</title>
+</head>
+<body>
+	<script>
+		var semana = [ 'Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado' ], 
+			meses = new Array( 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre' ),
+			nuevoArreglo,
+			convertirEnCadena,
+			convertirEnArreglo,
+			mensaje,
+			mensaje2,
+			division
+
+		console.log(
+			semana,
+			meses.length,
+			semana[3]
+		)
+
+		for( var n = 0; n < semana.length; n++ )
+		{
+			document.write('<p>' + semana[n] + '</p>')
+		}
+
+		for ( elemento in meses )
+		{
+			document.write('<p>' + meses[elemento] + '</p>')
+		}
+
+		semana.pop()
+
+		console.log( 'después de .pop(): ' + semana )
+
+		semana.push( 'Sábado' )
+
+		console.log( 'después de .push(): ' + semana )
+
+		semana.shift()
+
+		console.log( 'después de .shift(): ' + semana )
+
+		semana.unshift( 'Domingo' )
+
+		console.log( 'después de .unshift(): ' + semana )
+
+		semana.reverse()
+
+		console.log( 'después de .reverse(): ' + semana )
+
+		nuevoArreglo = semana.concat( meses )
+
+		console.log( 'después de .concat(): ' + nuevoArreglo, nuevoArreglo.length )
+
+		convertirEnCadena = nuevoArreglo.join( '-' )
+
+		console.log( 
+			'después de .join(): ' + convertirEnCadena,
+			typeof convertirEnCadena,
+			convertirEnCadena.length
+		)
+
+		convertirEnArreglo = convertirEnCadena.split( '-' )
+
+		console.log( 
+			'después de .split(): ' + convertirEnArreglo,
+			typeof convertirEnArreglo,
+			convertirEnArreglo.length
+		)
+
+		mensaje = 'Hola JavaScript'
+
+		console.log( mensaje.length )
+
+		mensaje += ', el lenguaje que dominará el mundo'
+
+		console.log( mensaje )
+
+		mensaje2 = mensaje.concat(' }:)')
+
+		console.log( 
+			mensaje2,
+			mensaje2.toUpperCase(),
+			mensaje2.toLowerCase(),
+			mensaje2.charAt( 5 ),
+			mensaje2.indexOf( 'J' ),
+			mensaje2.indexOf( 'x' ),
+			mensaje2.indexOf( 'a' ),
+			mensaje2.lastIndexOf( 'a' ),
+			mensaje2.substring( 5 ),
+			mensaje2.substring( 5, 15 ),
+			mensaje2.substring( -5 )
+		)
+
+		division = 19 / 3
+
+		console.log(
+			division,
+			isNaN( division )
+		)
+
+		if( isNaN( division ) )
+		{
+			alert( 'El valor de la variable NO es un número ' )
+		}
+		else
+		{
+			alert( 'El valor de la variable SI es un número ' )
+		}
+
+		console.log( division.toFixed( 2 ) )
+	</script>
+</body>
+</html>
