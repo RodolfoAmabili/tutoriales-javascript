@@ -1,0 +1,19 @@
+console.clear()
+
+console.log(
+    //document,
+    //document.forms,
+    //document.images,
+    //document.links,
+    document.location,
+    document.location.hash,
+    document.location.href,
+    document.location.host,
+    document.location.pathname,
+    document.location.port,
+    document.location.protocol,
+    document.location.search,
+    //document.location.reload(),
+    //document.location.assign('http://jonmircha.com')
+    document.location.replace('http://bextlan.com')
+)
