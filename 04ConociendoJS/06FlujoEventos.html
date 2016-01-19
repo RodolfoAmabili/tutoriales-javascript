@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Flujo de Eventos en JS (fase de captura y burbuja)</title>
+	<style>
+		html { font-size: 16px }
+
+		div {
+			padding: 4rem;
+			font-size: 2rem;
+			text-align: center;
+		}
+
+		.uno { background-color: red; }
+
+		.dos { background-color: green; }
+
+		.tres { background-color: blue; }
+	</style>
+</head>
+<body>
+	<h1>Flujo de Eventos en JS (fase de captura y burbuja)</h1>
+	<div class="uno">
+		1
+		<div class="dos">
+			2
+			<div class="tres">3</div>
+		</div>
+	</div>
+	<script>
+		var divs = document.querySelectorAll('div')
+
+		function hola(evento)
+		{
+			this.style.backgroundColor = 'yellow'
+
+			alert('Hola te saluda ' + this.className + '\nEl click lo originó ' + evento.target.className)
+			console.log(evento)
+
+			this.style.backgroundColor = ''
+
+			evento.stopPropagation()
+		}
+
+		for(var n=0; n < divs.length; n++)
+		{
+			divs[n].addEventListener('click', hola, true)
+		}
+		/*
+		<p id="parrafo">Esto es un parrafo</p>
+		3 formas de ejecutar un evento:
+			1)Como atributo de un tag HTML
+				<p id="parrafo" onclick="hola()">Esto es un parrafo</p>
+			2)Como manejador semántico
+				objeto.onevento = función
+				document.querySelector('#parrafo').onclick = hola
+			3)Como manejadores múltiples
+				objeto.addEventListener('evento', función, boolean)
+				document.querySelector('#parrafo').addEventListener('click', hola)
+				objeto.removeEventListener('evento', función, boolean)
+				document.querySelector('#parrafo').removeEventListener('click', hola)
+				Si no se especifica el parámetro boolean, el valor por defecto es false.
+					Si el boolean es falso se ejecuta la fase de burbuja (ir del elemento de más interno al más externo <body>)
+					Si el boolean es verdadero se ejecuta la fase de captura (ir del elemento de más externo <body> al más interno)
+		*/
+	</script>
+</body>
+</html>
