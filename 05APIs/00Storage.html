@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>API de Storage (Almacenamiento)</title>
+</head>
+<body>
+	<h1>API de Storage (Almacenamiento):</h1>
+	<ol>
+		<li>
+			<h2>Objeto localStorage</h2>
+			<div>
+				<input type="button" id="almacenar-local" value="Trabajando localStorage">
+				<input type="button" id="borrar-local" value="Borrando localStorage">
+				<span id="contador-local"></span>
+				<a href="">Ejemplo Funcional de localStorage</a>
+			</div>
+		</li>
+		<li>
+			<h2>Objeto sessionStorage</h2>
+			<div>
+				<input type="button" id="almacenar-web" value="Trabajando sessionStorage">
+				<span id="contador-web"></span>
+				<a href="">Ejemplo Funcional de sessionStorage</a>
+			</div>
+		</li>
+	</ol>
+	<script>
+		var d = document
+
+		function almacenamientoLocal() {
+			if(localStorage.contador)
+			{
+				localStorage.contador++
+			}
+			else
+			{
+				localStorage.contador = 1
+			}
+
+			d.querySelector('#contador-local').innerHTML = 'Has presionado el botón <mark>' + localStorage.contador + '</mark> veces.'
+		}
+
+		function borrarLocal() {
+			alert('Borrando el almacenamiento local')
+			localStorage.clear()
+		}
+
+		function almacenamientoWeb() {
+			if(sessionStorage.contador)
+			{
+				sessionStorage.contador++
+			}
+			else
+			{
+				sessionStorage.contador = 1
+			}
+
+			d.querySelector('#contador-web').innerHTML = 'Has presionado el botón <mark>' + sessionStorage.contador + '</mark> veces.'
+		}
+
+		function apiStorage() {
+			if( typeof(Storage)  !== undefined )
+			{
+				//alert('Tu navegador SI soporta el API de Storage')
+			}
+			else
+			{
+				//alert('Tu navegador NO soporta el API de Storage')
+			}
+				
+			d.querySelector('#almacenar-local').onclick = almacenamientoLocal
+			d.querySelector('#almacenar-web').onclick = almacenamientoWeb
+			d.querySelector('#borrar-local').onclick = borrarLocal
+		}
+
+		window.onload = apiStorage
+	</script>
+</body>
+</html>
