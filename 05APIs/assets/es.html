@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Español</title>
+</head>
+<body>
+	<h1>¡Hola!, Bienvenido al sitio.</h1>
+	<a id="btn-idioma" href="#">Olvidar Idioma</a>
+	<script>
+		function olvidarIdioma(evento) {
+			evento.preventDefault()
+			localStorage.removeItem('idioma')
+			window.location.href = 'local-storage.html'
+		}
+
+		document.querySelector('#btn-idioma').onclick = olvidarIdioma
+	</script>
+</body>
+</html>

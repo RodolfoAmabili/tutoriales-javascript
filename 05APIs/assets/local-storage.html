@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Ejemplo de localStorage</title>
+</head>
+<body>
+	<h1>Ejemplo de localStorage</h1>
+	<h2>Seleccionando Idioma de tu preferencia</h2>
+	<ul>
+		<li>
+			<a id="en" href="en.html">English</a>
+		</li>
+		<li>
+			<a id="es" href="es.html">Español</a>
+		</li>
+	</ul>
+	<script>
+		var d = document
+
+		function irAlIdioma() {
+			var obtenerIdioma = localStorage.getItem('idioma')
+			console.log(obtenerIdioma)
+
+			if(obtenerIdioma !== null || obtenerIdioma !== undefined){
+				var idioma = JSON.parse(obtenerIdioma)
+				console.log(idioma.id, idioma.url)
+
+				window.location.href = idioma.url
+			}
+		}
+
+		function guardarIdioma(evento) {
+			evento.preventDefault()
+
+			var objetoDatos = {
+				id : evento.target.id,
+				url : evento.target.href
+			}
+
+			console.log(objetoDatos)
+
+			var objetoJSON = JSON.stringify(objetoDatos)
+			console.log(objetoJSON)
+
+			localStorage.setItem('idioma', objetoJSON)
+
+			irAlIdioma()
+		}
+
+		function recordarIdioma() {
+			var en = d.querySelector('#en'),
+				es = d.querySelector('#es')
+
+			en.onclick = guardarIdioma
+			es.onclick = guardarIdioma
+
+			irAlIdioma()
+		}
+
+		window.onload = recordarIdioma
+	</script>
+</body>
+</html>
