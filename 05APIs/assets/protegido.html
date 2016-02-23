@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Documento Protegido con sessionStorage</title>
+</head>
+<body>
+	<h1>Documento Protegido con sessionStorage</h1>
+	<p>
+		Hola <mark id="autenticado"></mark> estás en una página protegida con sessionStorage
+	</p>
+	<p>
+		<a id="logout" href="#">Salir de la Sesión</a>
+	</p>
+	<script>
+		var d = document
+
+		function obtenerSesion() {
+			var nombre = sessionStorage.getItem('nombre')
+			d.querySelector('#autenticado').innerHTML = nombre
+
+			return (nombre === null || nombre === undefined)?window.location.href='session-storage.html':false
+		}
+
+		d.querySelector('#logout').onclick = function () {
+			sessionStorage.clear()
+			window.location.href = 'session-storage.html'
+		}
+
+		window.onload = obtenerSesion
+	</script>
+</body>
+</html>
