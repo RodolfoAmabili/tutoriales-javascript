@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Cortocircuito de Operadores Lógicos</title>
+</head>
+<body>
+	<h1>Cortocircuito de Operadores Lógicos</h1>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script>
+		/* Si en window NO existe el objeto jQuery, entonces escribe en el documento: script */
+		//!window.jQuery && document.write('<script src="jquery.min.js"><\/script>')
+		window.jQuery || document.write('<script src="jquery.min.js"><\/script>')
+	</script>
+	<script>
+		/* 
+		Operadores Lógicos OR ||  AND &&  y NOT !
+
+		Cortocircuito OR - cuando el valor de la izquierda en la expresión siempre pueda validar a true, es el valor que se cargará por defecto
+
+		Cortocircuito AND - cuando el valor de la izquierda en la expresión siempre pueda validar a false, es el valor que se cargará por defecto
+		*/
+
+		function mostrarPais(pais)
+		{
+			//var country = 'Desconocido' || pais
+			//var country = pais || 'Desconocido'
+			//var country = undefined || pais
+			//var country = null || pais
+			//var country = 'Desconocido' && pais
+			//var country = undefined && pais
+			//var country = null && pais
+			//var country = !null && pais
+			//var country = !undefined && pais
+			console.log(country,pais)
+		}
+
+		mostrarPais('México');
+		mostrarPais();
+	</script>
+</body>
+</html>
