@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Funciones Declaradas VS Funciones Expresadas</title>
+</head>
+<body>
+	<h1>Funciones Declaradas VS Funciones Expresadas</h1>
+	<script>
+		saludar()
+
+		//función declarada
+		function saludar() {
+			console.log('Hola')
+		}
+
+		//función expresada
+		var otroSaludo = function () {
+			console.log('Otra vez Hola')
+		}
+
+		otroSaludo()
+	</script>
+</body>
+</html>
