@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Funciones Anónimas Autoejecutables en JavaScript</title>
+</head>
+<body>
+	<h1 onclick="javascript:saludo()">Funciones Anónimas Autoejecutables en JavaScript</h1>
+	<script src="jquery.min.js"></script>
+	<script>
+		/*
+		function saludo() {
+			alert('Hola')
+		}
+
+		//saludo()
+
+		window.onload = saludo
+		
+		window.onload = function () {
+			alert('Hola desde una función anónima')
+		} 
+		*/
+		//Funciones Anónimas Autoejecutables
+		(function (d, w, n, _){
+
+			//alert('Hola')
+			//alert('ffff')
+			console.log(d,w,n,n.userAgent,_)
+			_('h1').css({backgroundColor:'magenta'})
+
+		})(document, window, navigator, jQuery);
+
+		
+		//Formas de escribir las funciones Anónimas Autoejecutables
+			//Clásica
+			(function (){
+				console.log('versión Clásica')
+			})();
+
+			//La Crockford (JavaScript The God Parts)
+			((function (){
+				console.log('versión Crockford')
+			})());
+
+			//Unaria
+			+function (){
+				console.log('versión Unaria')
+			}();
+
+			//Facebook
+			!function (){
+				console.log('versión Facebook')
+			}();
+	</script>
+</body>
+</html>
